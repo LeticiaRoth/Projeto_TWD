@@ -1,0 +1,50 @@
+.telaInventario { padding-bottom: 80px; }
+.cabecalhoInventario { background-color: #4a4a4a; padding: 20px; text-align: center; }
+.containerInventario {
+  background-color: #333;
+  margin: 0 15px; border-radius: 10px; border: 2px solid #ccc;
+  padding: 15px;
+}
+
+.areaPodio {
+  background-color: #e6e6e6;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.posicoesPodio {
+  display: flex; justify-content: center; align-items: flex-end; gap: 10px; margin-top: 15px;
+}
+
+.slotPodio {
+  width: 70px; height: 70px; border-radius: 50%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  position: relative; border: 2px solid #333;
+}
+
+.slotPodio span {
+  position: absolute; bottom: -25px; font-size: 12px; font-weight: bold; width: max-content;
+}
+
+.ouro { background-color: #fceea7; width: 85px; height: 85px; margin-bottom: 20px;}
+.prata { background-color: #d1d1d1; }
+.bronze { background-color: #e3c19f; }
+
+.gradePersonagens {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; justify-items: center;
+}
+
+.slotPersonagem {
+  width: 100px; height: 100px;
+  background-color: #666; border: 4px solid #1a1a1a;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.slotPersonagem.bloqueado { opacity: 0.5; }
+.slotPersonagem.usado { opacity: 0.3; }
+.avatarInventario { width: 100%; height: 100%; object-fit: cover; cursor: grab; }
+.avatarInventario:active { cursor: grabbing; }
+.silhuetaCadeado { font-size: 30px; }

@@ -1,0 +1,91 @@
+.telaMapa { padding-bottom: 80px; }
+
+.cabecalhoMapa {
+  text-align: center;
+  padding: 20px;
+  background-color: #4a4a4a;
+}
+
+.menuNavegacao {
+  display: flex;
+  background-color: #ffffff;
+  color: #333;
+}
+
+.menuNavegacao button {
+  flex: 1;
+  padding: 15px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.menuNavegacao button.ativo {
+  border-bottom: 3px solid #cc0000;
+  color: #cc0000;
+}
+
+.containerMapaImagem {
+  position: relative;
+  width: 70%;
+  height: 600px; /* Ajuste conforme proporção da sua imagem */
+  background-image: url('../../assets/mapa.png'); /* <-- CAMINHO CORRIGIDO AQUI */  background-size: cover;
+  background-position: center;
+  margin-top: 20px;
+}
+
+.pontoMapa {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+/* POSICIONAMENTO APROXIMADO DOS PONTOS (Ajuste as % baseadas na sua imagem) */
+.ponto1 { top: 85%; left: 50%; } /* Sala Professores */
+.ponto2 { top: 70%; left: 35%; } /* Lanchonete */
+.ponto3 { top: 60%; left: 60%; } /* Oficina */
+.ponto4 { top: 45%; left: 45%; } /* Sala Lucas */
+.ponto5 { top: 30%; left: 40%; } /* Busto Mange */
+.ponto6 { top: 15%; left: 45%; } /* Biblioteca */
+
+.iconeCadeado {
+  background-color: #ff8c8c;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #333;
+  font-size: 20px;
+}
+
+.ativoAnimado { background-color: #8cff8c; animation: pulsar 1.5s infinite; }
+
+.iconeAvatar img {
+  width: 65px; height: 65px;
+  border-radius: 50%;
+  border: 3px solid #d4af37;
+}
+
+.etiquetaLocal {
+  background-color: #f5f5dc;
+  color: #333;
+  padding: 2px 8px;
+  border-radius: 5px;
+  font-size: 10px;
+  text-align: center;
+  margin-top: 5px;
+  border: 1px solid #999;
+}
+
+@keyframes pulsar {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
