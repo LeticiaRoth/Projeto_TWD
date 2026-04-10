@@ -1,29 +1,57 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ContextoJogo } from '../../context/ContextoJogo';
 import { locaisJogo } from '../../data/dadosJogo';
 import './style.css';
 
 const Mapa = () => {
-  const { faseAtual } = useContext(ContextoJogo);
+  const { faseAtual, personagensDesbloqueados } = useContext(ContextoJogo);
   const navigate = useNavigate();
+  const [mostrarAviso, setMostrarAviso] = useState(false);
+
+  const neganDesbloqueado = personagensDesbloqueados.includes(6);
+
+  const lidarCliqueEnigma = () => {
+    if (neganDesbloqueado) {
+      navigate('/puzzle');
+    } else {
+      setMostrarAviso(true);
+      setTimeout(() => setMostrarAviso(false), 3000);
+    }
+  };
 
   return (
     <main className="telaMapa">
       <header className="cabecalhoMapa">
         <h2>Comece sua procura!!</h2>
-        <p>Selecione um dos locais abaixo, você terá que acertar a pergunta para encontrar o nosso personagem!</p>
+        <p>Selecione um dos locais abaixo para encontrar nossos personagens!</p>
       </header>
       
       <nav className="menuNavegacao">
         <button onClick={() => navigate('/')}>🏠 Home</button>
         <button className="ativo">📍 Mapa</button>
+        
+        <div className="containerLinkBloqueado">
+          <button 
+            className={!neganDesbloqueado ? 'botaoBloqueado' : ''}
+            onClick={lidarCliqueEnigma}
+            onMouseEnter={() => !neganDesbloqueado && setMostrarAviso(true)}
+            onMouseLeave={() => setMostrarAviso(false)}
+          >
+            {neganDesbloqueado ? "🧩 Enigma" : "🔒 Bloqueado"}
+          </button>
+          
+          {mostrarAviso && !neganDesbloqueado && (
+            <div className="balaoAviso">
+              Encontre o Negan no mapa primeiro!
+            </div>
+          )}
+        </div>
+
         <button onClick={() => navigate('/inventario')}>🎒 Inventário</button>
       </nav>
 
       <section className="containerMapaImagem">
-        {/* A imagem do mapa fica como background no CSS da classe containerMapaImagem */}
-        
         {locaisJogo.map((local) => {
           const estaDesbloqueado = local.id < faseAtual;
           const estaAtivo = local.id === faseAtual;

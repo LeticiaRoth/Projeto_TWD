@@ -1,82 +1,194 @@
 .telaHome {
-  padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  padding-bottom: 90px;
+  background-color: #333;
 }
 
 .cabecalhoHome {
+  background-color: #4a4a4a;
+  width: 100%;
   text-align: center;
   padding: 20px;
-  background: linear-gradient(to bottom, #4a4a4a, #2b2b2b);
 }
 
-.carrosselDestaque img {
+.cabecalhoHome h2 {
+  font-size: 24px;
+  color: #d1d1d1;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.cabecalhoHome p {
+  font-size: 14px;
+  color: #b5b5b5;
+  max-width: 600px;
+  margin: 5px auto 0;
+}
+
+.secaoCarrosselDestaque {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.conteudoHomeAlinhado {
+  width: 90%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 0 auto;
 }
 
 .secaoAcoes {
-  background-color: #cccccc;
-  margin: 15px;
-  border-radius: 10px;
-  padding: 15px;
+  width: 100%;
+  background-color: #b0b0b0;
+  border-radius: 12px;
+  padding: 20px;
   text-align: center;
+  border: 1px solid #999;
+}
+
+.secaoAcoes h3 {
   color: #333;
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .botoesAcao {
   display: flex;
-  justify-content: space-between;
-  margin-top: 15px;
+  justify-content: center;
+  gap: 20px;
 }
 
 .botaoAcao {
-  background: linear-gradient(to bottom, #666, #333);
-  border: none;
-  border-radius: 10px;
-  width: 48%;
-  color: white;
+  flex: 1;
+  max-width: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 15px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid #222;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  background: linear-gradient(180deg, #444 0%, #222 100%);
+  color: white;
+  transition: transform 0.2s;
+  padding-top: 15px;
 }
 
-.iconeBotao { font-size: 30px; margin: 10px 0; }
-.subBotaoEscuro {
-  background-color: #1a1a1a;
-  width: 100%;
+.botaoAcao:hover {
+  transform: scale(1.05);
+}
+
+.imgIconeAcao {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  margin-bottom: 5px;
+}
+
+.botaoAcao span {
+  font-weight: bold;
   padding: 10px;
-  margin-top: 10px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  font-size: 14px;
 }
 
-.secaoInformacoes { padding: 15px; }
+.subBotaoEscuro {
+  background-color: #000;
+  width: 100%;
+  padding: 8px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.secaoInformacoes {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
 .cartaoInfo {
-  background-color: #e6e6e6;
-  color: #333;
-  border-radius: 10px;
+  background-color: #ccc;
+  border-radius: 15px;
+  padding: 0;
   display: flex;
-  padding: 15px;
-  margin-bottom: 15px;
   align-items: center;
-  gap: 15px;
-  box-shadow: inset 0 -30px 40px rgba(0,0,0,0.1);
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-.cartaoInfo.invertido { flex-direction: row; }
-.iconeVideo {
-  background-color: #666;
-  color: white;
-  width: 60px;
-  height: 60px;
+.cartaoInfo.invertido {
+  justify-content: space-between;
+}
+
+.blocoImagemInfo {
+  background: linear-gradient(135deg, #444 0%, #222 100%);
+  width: 150px;
+  height: 150px;
   display: flex;
-  align-items: center;
   justify-content: center;
-  border-radius: 10px;
-  font-size: 24px;
+  align-items: center;
   flex-shrink: 0;
+}
+
+.imgInfo {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+
+.textoInfo {
+  padding: 20px;
+  color: #333;
+  text-align: left;
+}
+
+.textoInfo h4 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.textoInfo p {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.cabecalhoLogo h1 {
+  color: white;
+  margin-top: 40px;
+  font-size: 40px;
+  letter-spacing: 5px;
+}
+
+@media (max-width: 600px) {
+  .botoesAcao {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .botaoAcao {
+    width: 100%;
+    max-width: unset;
+  }
+
+  .cartaoInfo {
+    flex-direction: column;
+  }
+  
+  .blocoImagemInfo {
+    width: 100%;
+    height: 120px;
+  }
+  
+  .cartaoInfo.invertido {
+    flex-direction: column-reverse;
+  }
 }

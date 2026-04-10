@@ -1,25 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Jomhuria&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Roboto', 'Arial', sans-serif;
 }
 
 body {
   background-color: #2b2b2b;
   color: #ffffff;
-  display: flex;
-  justify-content: center;
 }
 
 #root {
   width: 100%;
-  max-width: 480px; 
   min-height: 100vh;
   background-color: #3d3d3d;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
   position: relative;
   overflow-x: hidden;
+  padding-bottom: 70px; 
 }
 
 .cabecalhoLogo {
@@ -29,7 +28,6 @@ body {
   position: fixed;
   bottom: 0;
   width: 100%;
-  max-width: 480px;
   z-index: 10;
 }
 

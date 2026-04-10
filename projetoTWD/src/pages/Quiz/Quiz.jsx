@@ -9,16 +9,23 @@ const Quiz = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { desbloquearPersonagem } = useContext(ContextoJogo);
+  
   const [modalAberto, setModalAberto] = useState(false);
+  const [modalErroAberto, setModalErroAberto] = useState(false);
+  const [mostrarFinal, setMostrarFinal] = useState(false);
   
   const local = locaisJogo.find(l => l.id === parseInt(id));
 
   const lidarComResposta = (opcaoSelecionada) => {
     if (opcaoSelecionada === local.respostaCorreta) {
       desbloquearPersonagem(local.id);
-      setModalAberto(true);
+      if (local.id === 6) {
+        setMostrarFinal(true);
+      } else {
+        setModalAberto(true);
+      }
     } else {
-      alert("Resposta incorreta! Tente novamente.");
+      setModalErroAberto(true);
     }
   };
 
@@ -61,6 +68,32 @@ const Quiz = () => {
           personagem={local} 
           aoFechar={() => navigate('/mapa')} 
         />
+      )}
+
+      {modalErroAberto && (
+        <div className="sobreposicaoModalErro">
+          <div className="conteudoModalErro">
+            <h2>Ops! Resposta Incorreta 🧟‍♂️</h2>
+            <p>Parece que os zumbis confundiram sua memória. Tente novamente!</p>
+            <button className="botaoTentarNovamente" onClick={() => setModalErroAberto(false)}>
+              Tentar Novamente
+            </button>
+          </div>
+        </div>
+      )}
+
+      {mostrarFinal && (
+        <div className="sobreposicaoModalSucesso">
+          <div className="conteudoModalSucesso">
+            <div className="trofeuFinal">🏆</div>
+            <h2>INCRÍVEL!!</h2>
+            <p>Você encontrou todos os sobreviventes perdidos no SENAI Roberto Mange!</p>
+            <p>Agora seu inventário está completo para enfrentar o apocalipse.</p>
+            <button className="botaoVerInventario" onClick={() => navigate('/inventario')}>
+              VER MEU INVENTÁRIO
+            </button>
+          </div>
+        </div>
       )}
 
       <footer className="cabecalhoLogo"><h1>TWD</h1></footer>

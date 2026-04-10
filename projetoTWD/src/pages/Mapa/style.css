@@ -1,4 +1,6 @@
-.telaMapa { padding-bottom: 80px; }
+.telaMapa { 
+  padding-bottom: 80px; 
+}
 
 .cabecalhoMapa {
   text-align: center;
@@ -29,29 +31,40 @@
 
 .containerMapaImagem {
   position: relative;
-  width: 70%;
-  height: 600px; /* Ajuste conforme proporção da sua imagem */
-  background-image: url('../../assets/mapa.png'); /* <-- CAMINHO CORRIGIDO AQUI */  background-size: cover;
-  background-position: center;
-  margin-top: 20px;
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+  aspect-ratio: 9 / 16; 
+  background-image: url('../../assets/mapa.png'); 
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center top;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
 }
 
 .pontoMapa {
   position: absolute;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
+  z-index: 2;
+  transition: transform 0.2s ease;
 }
 
-/* POSICIONAMENTO APROXIMADO DOS PONTOS (Ajuste as % baseadas na sua imagem) */
-.ponto1 { top: 85%; left: 50%; } /* Sala Professores */
-.ponto2 { top: 70%; left: 35%; } /* Lanchonete */
-.ponto3 { top: 60%; left: 60%; } /* Oficina */
-.ponto4 { top: 45%; left: 45%; } /* Sala Lucas */
-.ponto5 { top: 30%; left: 40%; } /* Busto Mange */
-.ponto6 { top: 15%; left: 45%; } /* Biblioteca */
+.pontoMapa:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+.ponto1 { top: 85%; left: 30%; }
+.ponto2 { top: 68%; left: 70%; }
+.ponto3 { top: 55%; left: 35%; }
+.ponto4 { top: 40%; left: 45%; }
+.ponto5 { top: 28%; left: 30%; }
+.ponto6 { top: 12%; left: 35%; }
 
 .iconeCadeado {
   background-color: #ff8c8c;
@@ -63,14 +76,22 @@
   justify-content: center;
   border: 3px solid #333;
   font-size: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.6);
 }
 
-.ativoAnimado { background-color: #8cff8c; animation: pulsar 1.5s infinite; }
+.ativoAnimado { 
+  background-color: #8cff8c; 
+  animation: pulsar 1.5s infinite; 
+}
 
 .iconeAvatar img {
-  width: 65px; height: 65px;
+  width: 60px; 
+  height: 60px;
   border-radius: 50%;
   border: 3px solid #d4af37;
+  object-fit: cover;
+  background-color: #d9d9d9;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.6);
 }
 
 .etiquetaLocal {
@@ -82,10 +103,86 @@
   text-align: center;
   margin-top: 5px;
   border: 1px solid #999;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.containerLinkBloqueado {
+  position: relative;
+  flex: 1;
+  display: flex;
+}
+
+.containerLinkBloqueado button {
+  width: 100%;
+}
+
+.balaoAviso {
+  position: absolute;
+  top: 110%; 
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #cc0000;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 100;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  animation: subirAviso 0.3s ease-out;
+}
+
+/* Triângulo do balão */
+.balaoAviso::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #cc0000 transparent;
+}
+
+@keyframes subirAviso {
+  from { opacity: 0; transform: translate(-50%, 10px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+.botaoBloqueado {
+  color: #999 !important;
+  cursor: not-allowed !important;
 }
 
 @keyframes pulsar {
   0% { transform: scale(1); }
   50% { transform: scale(1.1); }
   100% { transform: scale(1); }
+}
+
+@media (max-width: 600px) {
+  .containerMapaImagem {
+    width: 95%;
+    height: 65vh;
+    aspect-ratio: unset;
+    margin: 10px auto;
+  }
+  
+  .etiquetaLocal {
+    display: none;
+  }
+
+  .iconeCadeado {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+    border-width: 2px;
+  }
+
+  .iconeAvatar img {
+    width: 45px; 
+    height: 45px;
+    border-width: 2px;
+  }
 }

@@ -1,50 +1,186 @@
-.telaInventario { padding-bottom: 80px; }
-.cabecalhoInventario { background-color: #4a4a4a; padding: 20px; text-align: center; }
+.telaInventario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #383838;
+  padding-bottom: 90px;
+}
+
+.cabecalhoInventario {
+  background-color: #4a4a4a;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+}
+
+.cabecalhoInventario h2 {
+  font-size: 24px;
+  color: #d1d1d1;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.cabecalhoInventario p {
+  font-size: 14px;
+  color: #b5b5b5;
+  max-width: 600px;
+  margin: 5px auto 0;
+}
+
+.containerBotao {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: flex-start;
+  padding: 15px 5%;
+}
+
+.botaoVoltar {
+  background: none;
+  border: none;
+  color: #9c8a40;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 .containerInventario {
-  background-color: #333;
-  margin: 0 15px; border-radius: 10px; border: 2px solid #ccc;
-  padding: 15px;
+  width: 90%;
+  max-width: 1200px;
+  background-color: #444444;
+  border: 2px solid #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
 .areaPodio {
   background-color: #e6e6e6;
-  border-radius: 10px;
-  padding: 15px;
-  text-align: center;
   color: #333;
-  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.areaPodio h3 {
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
 .posicoesPodio {
-  display: flex; justify-content: center; align-items: flex-end; gap: 10px; margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 15px;
+  margin-top: 15px;
 }
 
 .slotPodio {
-  width: 70px; height: 70px; border-radius: 50%;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  position: relative; border: 2px solid #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
 }
 
 .slotPodio span {
-  position: absolute; bottom: -25px; font-size: 12px; font-weight: bold; width: max-content;
+  font-weight: bold;
+  font-size: 14px;
+  color: #4a4a4a;
 }
 
-.ouro { background-color: #fceea7; width: 85px; height: 85px; margin-bottom: 20px;}
-.prata { background-color: #d1d1d1; }
-.bronze { background-color: #e3c19f; }
+.circuloBase {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.ouro .circuloBase {
+  width: 100px;
+  height: 100px;
+  background-color: #f5eedc;
+}
+
+.prata .circuloBase {
+  background-color: #c4c4c4;
+}
+
+.bronze .circuloBase {
+  background-color: #d8c9b3;
+}
+
+.avatarInventario {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
 
 .gradePersonagens {
-  display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; justify-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 600px) {
+  .gradePersonagens {
+    grid-template-columns: repeat(3, max-content);
+    gap: 30px;
+  }
 }
 
 .slotPersonagem {
-  width: 100px; height: 100px;
-  background-color: #666; border: 4px solid #1a1a1a;
-  display: flex; align-items: center; justify-content: center;
+  width: 120px;
+  height: 120px;
+  background-color: #666;
+  border-style: solid;
+  border-width: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
 }
 
-.slotPersonagem.bloqueado { opacity: 0.5; }
-.slotPersonagem.usado { opacity: 0.3; }
-.avatarInventario { width: 100%; height: 100%; object-fit: cover; cursor: grab; }
-.avatarInventario:active { cursor: grabbing; }
-.silhuetaCadeado { font-size: 30px; }
+.imagemBasePersonagem {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  object-fit: cover;
+  background-color: #d9d9d9;
+  cursor: grab;
+}
+
+.imagemBasePersonagem:active {
+  cursor: grabbing;
+}
+
+.slotPersonagem.bloqueado {
+  border-color: #333 !important;
+}
+
+.slotPersonagem.bloqueado .imagemBasePersonagem {
+  filter: grayscale(100%) brightness(0.5);
+  cursor: not-allowed;
+}
+
+.silhuetaCadeado {
+  position: absolute;
+  font-size: 30px;
+  z-index: 2;
+  text-shadow: 0 0 5px rgba(0,0,0,0.8);
+}
