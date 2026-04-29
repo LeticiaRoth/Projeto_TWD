@@ -1,17 +1,17 @@
-.telaMapa { 
-  padding-bottom: 80px; 
-}
-
 .cabecalhoMapa {
   text-align: center;
   padding: 20px;
   background-color: #4a4a4a;
+  color: white;
 }
 
+/*Menu de navegação*/
 .menuNavegacao {
   display: flex;
   background-color: #ffffff;
   color: #333;
+  align-items: center;
+  margin-bottom: 70px;
 }
 
 .menuNavegacao button {
@@ -22,13 +22,25 @@
   border-bottom: 3px solid transparent;
   font-weight: bold;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+/*ícones da navegação*/
+.nav-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
 }
 
 .menuNavegacao button.ativo {
   border-bottom: 3px solid #cc0000;
-  color: #cc0000;
+  color: #831717;
 }
 
+/*Container do mapa*/
 .containerMapaImagem {
   position: relative;
   width: 100%;
@@ -44,6 +56,7 @@
   overflow: hidden;
 }
 
+/*Pontos do mapa*/
 .pontoMapa {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -66,27 +79,30 @@
 .ponto5 { top: 28%; left: 30%; }
 .ponto6 { top: 12%; left: 35%; }
 
+/*Icone do cadeado*/
 .iconeCadeado {
-  background-color: #ff8c8c;
+  background-color: #740606;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 3px solid #333;
+  border: 3px solid #160e0e;
   font-size: 20px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.6);
 }
 
+/*Ativo no mapa - animação*/
 .ativoAnimado { 
-  background-color: #8cff8c; 
+  background-color: #0c860c; 
   animation: pulsar 1.5s infinite; 
 }
 
+/*Icone do avatar*/
 .iconeAvatar img {
-  width: 60px; 
-  height: 60px;
+  width: 80px; 
+  height: 80px;
   border-radius: 50%;
   border: 3px solid #d4af37;
   object-fit: cover;
@@ -117,12 +133,13 @@
   width: 100%;
 }
 
+/*Aviso Negan, na parte do enigma */
 .balaoAviso {
   position: absolute;
   top: 110%; 
   left: 50%;
   transform: translateX(-50%);
-  background-color: #cc0000;
+  background-color: #700606;
   color: white;
   padding: 8px 12px;
   border-radius: 6px;
@@ -133,7 +150,6 @@
   animation: subirAviso 0.3s ease-out;
 }
 
-/* Triângulo do balão */
 .balaoAviso::after {
   content: "";
   position: absolute;
@@ -142,9 +158,11 @@
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: transparent transparent #cc0000 transparent;
+  border-color: transparent transparent #200303 transparent;
 }
 
+
+/*Responsividade*/
 @keyframes subirAviso {
   from { opacity: 0; transform: translate(-50%, 10px); }
   to { opacity: 1; transform: translate(-50%, 0); }
@@ -153,6 +171,11 @@
 .botaoBloqueado {
   color: #999 !important;
   cursor: not-allowed !important;
+}
+
+.botaoBloqueado .nav-icon {
+  filter: grayscale(1);
+  opacity: 0.5;
 }
 
 @keyframes pulsar {

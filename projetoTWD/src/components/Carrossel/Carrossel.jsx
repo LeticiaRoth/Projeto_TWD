@@ -20,6 +20,7 @@ const Carrossel = ({ imagens }) => {
   if (!imagens || imagens.length === 0) return null;
 
   return (
+    //Paasar o carrossel
     <div className="carrosselContainer">
       {imagens.map((imagem, index) => (
         <div 
@@ -31,7 +32,7 @@ const Carrossel = ({ imagens }) => {
           )}
         </div>
       ))}
-      
+      {/*Indicadores do carrossel, as bolinhas */}
       <div className="indicadoresCarrossel">
         {imagens.map((_, index) => (
           <span 
