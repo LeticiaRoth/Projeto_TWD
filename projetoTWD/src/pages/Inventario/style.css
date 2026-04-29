@@ -4,10 +4,10 @@
   align-items: center;
   width: 100%;
   min-height: 100vh;
-  background-color: #383838;
   padding-bottom: 90px;
 }
 
+/* Cabeça~lho */
 .cabecalhoInventario {
   background-color: #4a4a4a;
   width: 100%;
@@ -28,6 +28,7 @@
   margin: 5px auto 0;
 }
 
+/* Container do botão */
 .containerBotao {
   width: 100%;
   max-width: 1200px;
@@ -60,6 +61,7 @@
   gap: 30px;
 }
 
+/* Pódio, com a logica do drag and drop */
 .areaPodio {
   background-color: #e6e6e6;
   color: #333;
@@ -95,6 +97,7 @@
   color: #4a4a4a;
 }
 
+/* Círculos dos avatares dos personagens */
 .circuloBase {
   width: 80px;
   height: 80px;
@@ -106,6 +109,7 @@
   overflow: hidden;
 }
 
+/*CSS do ouro. prata e bronze*/
 .ouro .circuloBase {
   width: 100px;
   height: 100px;
@@ -120,6 +124,7 @@
   background-color: #d8c9b3;
 }
 
+/* Imagem do personagem dentro do pódio */
 .avatarInventario {
   width: 100%;
   height: 100%;
@@ -135,6 +140,7 @@
   justify-content: center;
 }
 
+/* Responsividade */
 @media (min-width: 600px) {
   .gradePersonagens {
     grid-template-columns: repeat(3, max-content);
@@ -142,6 +148,7 @@
   }
 }
 
+/* Quadrado de fundo de cada personagem na grade */
 .slotPersonagem {
   width: 120px;
   height: 120px;
@@ -155,6 +162,7 @@
   box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
 }
 
+/*Base do personagem dentro do slot*/
 .imagemBasePersonagem {
   width: 90px;
   height: 90px;
@@ -178,6 +186,7 @@
   cursor: not-allowed;
 }
 
+/* Cadeado do personagem não desbloqueado */
 .silhuetaCadeado {
   position: absolute;
   font-size: 30px;
