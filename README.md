@@ -69,7 +69,7 @@ O objetivo final é reunir todos os **6 personagens** e completar a Ordem de TWD
 
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/LeticiaRoth/projetoTWD.git
+git clone https://github.com/LeticiaRoth/Projeto_TWD.git
 
 # 2. Entre na pasta do projeto
 cd projetoTWD
@@ -91,3 +91,4 @@ O app abrirá em `http://localhost:5173/`.
 ## Desenvolvedora
 
 Projeto desenvolvido para fins educacionais, desenvolvido pela aluna Letícia Alves Roth - 3DS|TB - 2026.
+Agradecimento: Professora Mariany Morais - SENAI
