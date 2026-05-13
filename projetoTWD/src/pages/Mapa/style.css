@@ -184,6 +184,7 @@
   100% { transform: scale(1); }
 }
 
+
 @media (max-width: 600px) {
   .containerMapaImagem {
     width: 95%;

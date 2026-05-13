@@ -75,7 +75,7 @@ const Mapa = () => {
           </button>
         </nav>
         
-        {/*Container do Mapa */}
+        {/*Container do Mapa - com os pontos certos*/}
         <section className="containerMapaImagem">
           {locaisJogo.map((local) => {
             const estaDesbloqueado = local.id < faseAtual;

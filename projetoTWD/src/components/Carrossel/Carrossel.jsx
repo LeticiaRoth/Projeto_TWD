@@ -4,7 +4,7 @@ import './Carrossel.css';
 const Carrossel = ({ imagens }) => {
   const [indiceAtual, setIndiceAtual] = useState(0);
 
-  // Efeito para trocar a imagem automaticamente a cada 3 segundos
+  // Efeito para trocar a imagem automaticamente a cada 3 segunds
   useEffect(() => {
     if (!imagens || imagens.length === 0) return;
     

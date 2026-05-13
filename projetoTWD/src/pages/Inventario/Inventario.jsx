@@ -112,7 +112,7 @@ const Inventario = () => {
               const desbloqueado = personagensDesbloqueados.includes(local.id);
               const noPodio = Object.values(podio).includes(local.id);
 
-              // Cores dos personagens
+              // Cores dos personagens para a borda do inventário
               const coresBorda = [
                 "#666666",
                 "#d67e7e",
@@ -129,7 +129,7 @@ const Inventario = () => {
                   className={`slotPersonagem ${desbloqueado ? "ativo" : "bloqueado"} ${noPodio ? "usado" : ""}`}
                   style={{ borderColor: corAtual }}
                 >
-                  {/* Avatar do Personagem: Arrastável apenas se desbloqueado e não estiver no pódio */}
+                  {/* Avatar do Personagem: deixa arastar apenas se desbloqueado e não estiver no pódio */}
                   <img
                     src={local.imagem}
                     alt="Avatar"
